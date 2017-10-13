@@ -1,0 +1,57 @@
+<tr>
+  <td valign="top" style="background-color:#f8f8f8;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20" class="em_side">&nbsp;</td>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Charge details:
+                </p>
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Booking : <%= link_to @booking.booking_number, admin_booking_url(@booking.id) %>
+                </p>
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Recipient : <%= link_to @adventurer_charge.receiver.email, admin_guide_url(@adventurer_charge.receiver.id) %>
+                </p>
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Adventurer charge stripe :
+                  <% if Rails.env.production? %>
+                    <%= link_to @adventurer_charge.stripe_id, "http://dashboard.stripe.com/payments/#{@adventurer_charge.stripe_id}" %>
+                  <% else %>
+                    <%= link_to @adventurer_charge.stripe_id, "http://dashboard.stripe.com/test/payments/#{@adventurer_charge.stripe_id}" %>
+                  <% end %>
+                </p>
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Adventurer charge amount : <%= @adventurer_charge.amount.format %>
+                </p>
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Booking credits amount : <%= @credit_amount.format %>
+                </p>
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Booking service fee : <%= @service_fee.format %>
+                </p>
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Discount amount : <%= @discount_amount.format %>
+                </p>
+                <p style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  Error message : <%= @message %>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="20" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>
+

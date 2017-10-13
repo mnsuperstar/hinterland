@@ -1,0 +1,29 @@
+<div id="cable_status">Connecting, please wait..</div>
+<%= form_tag nil, id: 'cable_login_form', class: 'cable-section' do %>
+  <%= text_field_tag "auth_token", current_user.try(:auth_token_api_attribute), placeholder: "UID + Auth Token" %>
+  <%= button_tag "Login" %>
+<% end %>
+
+<div id="cable_messages" class="cable-section">
+  Logged in as: <span id="cable_user">NN</span> | <%= link_to "Logout", '#', id: 'cable_logout' %> | <%= link_to "clear", '#', class: 'clear-link' %>
+  <div id="messages_container">
+  </div>
+  <form action="#" id="cable_test_form_message">
+    <%= select_tag "cable_chat_user", options_for_select([['-', '']] + User.all.map{|u| [u.email, u.uid]}) %>
+    <%= text_field_tag "chat_message", '', placeholder: "message" %>
+    <%= button_tag "Send" %>
+  </form>
+</div>
+
+<div id="cable_console">
+  <div>
+    Received Messages | <%= link_to "clear", '#', class: 'clear-link' %>
+    <div id="ws_receives"></div>
+  </div>
+  <div>
+    Sent Messages | <%= link_to "clear", '#', class: 'clear-link' %>
+    <div id="ws_sends"></div>
+  </div>
+</div>
+
+<div id="cable_data" data-url="<%= ENV.fetch('ACTIONCABLE_URL', "ws://#{ENV['ROOT_DOMAIN']}/cable/") %>"></div>

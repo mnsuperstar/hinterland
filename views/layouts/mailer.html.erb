@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HINTERLANDS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
+    <meta name="format-detection" content="telephone=no" />
+    <!--[if !mso]><!-->
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
+    <style type="text/css">
+      body {
+        -webkit-text-size-adjust: 100% !important;
+        -ms-text-size-adjust: 100% !important;
+        -webkit-font-smoothing: antialiased !important;
+      }
+      img {
+        border: 0 !important;
+        outline: none !important;
+      }
+      p {
+        margin: 0px !important;
+        padding: 0px !important;
+      }
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0px;
+        mso-table-rspace: 0px;
+      }
+      td, a, span {
+        border-collapse: collapse;
+        mso-line-height-rule: exactly;
+      }
+      .ExternalClass * {
+        line-height: 100%;
+      }
+      span.MsoHyperlink {
+        mso-style-priority: 99;
+        color: inherit;
+      }
+      span.MsoHyperlinkFollowed {
+        mso-style-priority: 99;
+        color: inherit;
+      }
+      .em_blk_1 a {
+        color: #a7afb3 !important;
+        text-decoration: none !important;
+      }
+      @media only screen and (min-width: 481px) and (max-width: 599px) {
+        table[class=em_main_table] {
+          width:100% !important;
+        }
+        table[class="em_wrapper"] {
+          width: 100% !important;
+        }
+        td[class=em_center] {
+          text-align: center !important;
+        }
+        td[class=em_centertop] {
+          text-align: center !important;
+          padding-top:18px !important;
+        }
+        td[class="em_height"] {
+          height: 20px !important;
+        }
+        td[class="em_pad_top"] {
+          padding-top: 20px !important;
+        }
+        img[class="em_img"] {
+          width: 100% !important;
+          height: auto !important;
+        }
+        td[class="em_side"] {
+          width: 10px !important;
+        }
+        td[class="em_hide"], br[class="em_hide"] {
+          display: none !important;
+        }
+        td[class="em_center"] {
+          text-align: center !important;
+        }
+        td[class="em_font_25"] {
+          font-size: 20px !important;
+          line-height: 22px !important;
+        }
+        td[class="em_w40"] {
+          width: 60px !important;
+        }
+      }
+      @media only screen and (max-width: 480px) {
+        table[class=em_main_table] {
+          width:100% !important;
+        }
+        table[class="em_wrapper"] {
+          width: 100% !important;
+        }
+        table[class=em_wrapper1] {
+          width:100% !important;
+        }
+        td[class="em_height"] {
+          height: 20px !important;
+        }
+        td[class="em_hide"], br[class="em_hide"] {
+          display: none !important;
+        }
+        td[class="em_pad_top"] {
+          padding-top: 20px !important;
+        }
+        td[class="em_side"] {
+          width: 10px !important;
+        }
+        img[class="em_img"] {
+          width: 100% !important;
+          height: auto !important;
+        }
+        td[class="em_center"] {
+          text-align: center !important;
+        }
+        td[class=em_centertop] {
+          text-align: center !important;
+          padding-top:18px !important;
+        }
+        table[class="em_wrapper_1"] {
+          width: 300px !important;
+        }
+        td[class="em_font_25"] {
+          font-size: 18px !important;
+          line-height: 20px !important;
+        }
+        td[class="em_w40"] {
+          width: 40px !important;
+        }
+        td[class=w_60] {
+          width:60px !important;
+          font-size:12px !important;
+          line-height:10px !important;
+        }
+        span[class=em_br] {
+          display:block !important;
+        }
+        table[class=em_wrapper_1] {
+          width: 300px !important;
+        }
+      }
+    </style>
+  </head>
+  <body style="margin:0px; padding:0px;" bgcolor="#ffffff">
+    <!--Full width table start-->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#ffffff">
+      <tr>
+        <td align="center">
+          <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="em_wrapper" style="table-layout:fixed;">
+            <tr>
+              <td class="em_hide" style="line-height:1px; font-size:1px;" width="600">
+                <%= image_tag "spacer.gif", :height => "1", :width => "600", :style => "height: 64px; max-height: 1px; min-height: 1px; display: block; width: 600px; min-width: 600px;", :border => "0"%>
+              </td>
+            </tr>
+            <%= render template: "user_mailer/email_header.html.erb" %>
+
+            <!-- content --> 
+            <%= yield %>
+
+            <%= render template: "user_mailer/email_footer.html.erb" %>
+          </table>
+        </td>
+      </tr>    
+    </table>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<tr>
+  <td valign="top" align="center" bgcolor="#f8f8f8">
+    <table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20" class="em_side">&nbsp;</td>
+        <td valign="top" align="center">
+          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="40" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="em_font_25" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:25px; line-height:27px; color:#403c39; font-weight:bold;"><%= @user.first_name %>, you have a new adventure request!
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                <%= @user.first_name %>,
+                <br/>
+                Congrats! An adventurer on Hinterlands has requested an adventure with you.
+                <br/>
+                Please login to Hinterlands and review your requests under the adventure request section.
+                <!-- Please review and accept or decline <%= link_to "this request", web_app_url('guide/bookings', id: @booking.uid) %> now. -->
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                Thanks,
+                <br/>
+                The Hinterlands Team
+              </td>
+            </tr>
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="20" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>

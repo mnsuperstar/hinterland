@@ -1,0 +1,40 @@
+<tr>
+  <td valign="top" align="center" bgcolor="#f8f8f8">
+    <%= image_tag(@booking.guide.profile_photo, width: "50", height: "50", :style => "font-family:Arial, sans-serif; font-size:15px; color:#000000; display:block; max-width:233px;", :border => "none")%>
+    <table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20" class="em_side">&nbsp;</td>
+        <td valign="top" align="center">
+          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="40" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                <%= @booking.adventurer.first_name %>,
+                <br/>
+                We hope you enjoyed your <%= @activities %> adventure with <%= @booking.guide.first_name %>. Now is your turn to let your guide know what you loved about the experience and provide any feedback you’d like.
+                <br/>
+                Reviews are essential to The Hinterlands community. Our users love reading them, and our guides are always striving to be better.
+                <br/>
+                <%= link_to "Review", web_app_url('reservations', id: @booking.uid) %>
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                The Hinterlands Team
+              </td>
+            </tr>
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="20" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>

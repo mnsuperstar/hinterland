@@ -1,0 +1,497 @@
+<tr>
+  <td valign="top" style="background-color:#f8f8f8;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="96" class="em_side">&nbsp;</td>
+        <td valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:22px; line-height:24px; color:#403c39; font-weight:bold;">
+                Congratulations, adventure accepted!
+              </td>
+            </tr>
+            <tr>
+              <td height="20">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center" style="font-family: 'Droid Serif', Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:26px; color:#827c75;">
+                You’ve booked a trip: <span style="color:#403c39;"><%= I18n.t(@booking.adventure.duration, scope: %i(enum adventure duration)) %> <%= @booking.adventure.main_activity.try(:title) %> in <%= @booking.adventure.location_name %></span> with <span style="color:#403c39;"><%= @booking.guide.short_name %></span> We’ll keep you updated with alerts as the trip approaches.
+              </td>
+            </tr>
+            <tr>
+              <td height="22" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table align="center" border="0" cellspacing="0" cellpadding="0" class="em_wrapper" style="max-width:408px;">
+                  <tr>
+                    <td background="<%= @booking.adventure.main_image.file.url if @booking.adventure.main_image %>" bgcolor="#756e5d" width="408" height="87" valign="top">
+                      <!--[if gte mso 9]>
+                      <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:408px;height:87px;">
+                        <v:fill type="tile" src="<%= @booking.adventure.main_image.file.url if @booking.adventure.main_image %>" color="#756e5d" />
+                        <v:textbox inset="0,0,0,0">
+                          <![endif]-->
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td width="24" class="em_side">&nbsp;</td>
+                              <td valign="top">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td height="18" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:20px; line-height:27px; color:#ffffff; font-weight:bold;">
+                                      <%= I18n.t(@booking.adventure.duration, scope: %i(enum adventure duration)) %> <%= @booking.adventure.main_activity.try(:title) %> in <%= @booking.adventure.location_name %>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td width="10">&nbsp;</td>
+                            </tr>
+                          </table>
+                          <!--[if gte mso 9]>
+                        </v:textbox>
+                      </v:rect>
+                      <![endif]-->
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table align="center" border="0" cellspacing="0" cellpadding="0" class="em_wrapper" style="max-width:408px;background-color:#ffffff;">
+                  <tr>
+                    <td width="45" class="em_side">&nbsp;</td>
+                    <td valign="top">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="30" class="em_height">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="center">
+                            <table align="center" width="318" border="0" cellspacing="0" cellpadding="0" class="em_wrapper1">
+                              <tr>
+                                <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                  Date
+                                </td>
+                                <td width="10"></td>
+                                <td valign="top" align="right" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                  <%= l @booking.start_on, format: :itinerary %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="15" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="center">
+                            <table align="center" width="318" border="0" cellspacing="0" cellpadding="0" class="em_wrapper1">
+                              <tr>
+                                <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                  <%= (@booking.adventure_price * @booking.total_adventure_dates).format %> X <%= t('text.person', count: @booking.number_of_adventurers) %>
+                                </td>
+                                <td width="10"></td>
+                                <td width="95" valign="top" align="right" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                  <%= @booking.base_price.format %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="15" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="center">
+                            <table align="center" width="318" border="0" cellspacing="0" cellpadding="0" class="em_wrapper1">
+                              <tr>
+                                <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                  Service Fee
+                                </td>
+                                <td width="10"></td>
+                                <td width="95" valign="top" align="right" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                  <%= @booking.service_fee.format %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="15" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="center">
+                            <table align="center" width="318" border="0" cellspacing="0" cellpadding="0" class="em_wrapper1">
+                              <tr>
+                                <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                  Subtotal
+                                </td>
+                                <td width="10"></td>
+                                <td width="95" valign="top" align="right" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                  <%= @booking.sub_total_price.format %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="15" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                        </tr>
+                        <% if @booking.promotion_code %>
+                          <tr>
+                            <td valign="top" align="center">
+                              <table align="center" width="318" border="0" cellspacing="0" cellpadding="0" class="em_wrapper1">
+                                <tr>
+                                  <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#1e784d; letter-spacing:3px;">
+                                    Promo Code <span class="em_br"></span><strong>(<%= @booking.promotion_code.code %>)</strong>
+                                  </td>
+                                  <td width="10"></td>
+                                  <td valign="top" width="95" align="right" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#1e784d; font-weight:bold; letter-spacing:3px;">
+                                    <%= @booking.discount.format %>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td height="10" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                          </tr>
+                        <% end -%>
+                        <% if @booking.tax_cents.nonzero? %>
+                          <tr>
+                            <td valign="top" align="center">
+                              <table align="center" width="318" border="0" cellspacing="0" cellpadding="0" class="em_wrapper1">
+                                <tr>
+                                  <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                    Tax
+                                  </td>
+                                  <td width="10"></td>
+                                  <td width="95" valign="top" align="right" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#403d39; letter-spacing:3px;">
+                                    <%= @booking.tax.format %>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td height="15" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                          </tr>
+                        <% end -%>
+                        <tr>
+                          <td valign="top" align="center">
+                            <table align="center" width="318" border="0" cellspacing="0" cellpadding="0" class="em_wrapper1">
+                              <tr>
+                                <td style="font-size:0px; line-height:0px;"></td>
+                                <td width="95" style="font-size:0px; line-height:0px;" bgcolor="#6299b3" height="1">
+                                  <%= image_tag "spacer.gif", :width => "1", :height =>"1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="22" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="center">
+                            <table align="center" width="318" border="0" cellspacing="0" cellpadding="0" class="em_wrapper1">
+                              <tr>
+                                <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; font-weight:bold; color:#6ca7c3; letter-spacing:3px;">
+                                  TOTAL ($USD)
+                                </td>
+                                <td width="10"></td>
+                                <td valign="top" width="95" align="right" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:18px; line-height:20px; color:#6ca7c3; font-weight:bold; letter-spacing:3px;">
+                                  <%= @booking.total_price.format %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="40" class="em_height">&nbsp;</td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td width="45" class="em_side">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="32" align="center" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:18px; line-height:20px; color:#403c39;font-weight:bold;">GUIDE NOTES</td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table align="center" width="102" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="2" bgcolor="#6299b3" style="font-size:0px; line-height:0px;">
+                      <%= image_tag "spacer.gif", :width => "1", :height =>"1", :alt => "", :style => "display:block;", :border => "0" %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="24" align="center" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center" style="color:#6299b3; font-family: 'Droid Serif', Georgia, 'Times New Roman', Times, serif; font-size:16px; line-height:24px; font-style:italic;">
+                “<%= @booking.adventure.notes %>”
+              </td>
+            </tr>
+            <tr>
+              <td height="15" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center" style="color:#827c75; font-family: 'Droid Serif', Georgia, 'Times New Roman', Times, serif; font-size:15px; line-height:22px;">
+                Have questions for <span style="color:#403c39;"><%= @booking.guide.short_name %></span>? Send your guide a message in the app here.
+              </td>
+            </tr>
+            <tr>
+              <td height="18" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table align="center" width="75" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="75" style="border-radius:100%;overflow:hidden;">
+                      <%= image_tag @booking.guide.profile_photo.url, :width => "75", :alt => "", :style => "display:block; max-width:76px;", :border => "0" if @booking.guide.try(:profile_photo?) %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="8" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#000000; letter-spacing:3px;">
+                <%= @booking.guide.short_name %>
+              </td>
+            </tr>
+            <tr>
+              <td height="11" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td height="25" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table align="center" width="160" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top" align="center">
+                      <table align="center" width="160" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td valign="top" width="3" style="font-size:0px; line-height:0px;">
+                            <%= image_tag "curve_1.jpg", :width => "3", :height => "3", :alt => "", :style => "display:block; max-width:3px;", :border => "0" %>
+                          </td>
+                          <td valign="top" align="center">
+                            <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="1" style="font-size:0px; line-height:0px;" bgcolor="#6299b3">
+                                  <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="2" style="font-size:0px; line-height:0px;">
+                                  <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td valign="top" width="3" style="font-size:0px; line-height:0px;">
+                            <%= image_tag "curve_2.jpg", :width => "3", :height => "3", :alt => "", :style => "display:block; max-width:3px;", :border => "0" %>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="center">
+                      <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="1" bgcolor="#6299b3"></td>
+                          <td height="35" valign="middle" align="center" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:10px; color:#74a9c0; font-weight:bold;">
+                            <%= link_to "CONTACT GUIDE", web_app_url('guides', id: @booking.guide.slug), :target => "_blank", :style => "text-decoration:none; line-height:35px; display:block; color:#74a9c0;" %>
+                          </td>
+                          <td width="1" bgcolor="#6299b3"></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="center">
+                      <table align="center" width="160" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td valign="top" width="3" style="font-size:0px; line-height:0px;">
+                            <%= image_tag "curve_4.jpg", :width => "3", :height => "3", :alt => "", :style => "display:block; max-width:3px;", :border => "0" %>
+                          </td>
+                          <td valign="top" align="center">
+                            <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="2" style="font-size:0px; line-height:0px;" >
+                                  <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="1" style="font-size:0px; line-height:0px;" bgcolor="#6299b3">
+                                  <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td valign="top" width="3" style="font-size:0px; line-height:0px;">
+                            <%= image_tag "curve_3.jpg", :width => "3", :height => "3", :alt => "", :style => "display:block; max-width:3px;", :border => "0" %>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="38" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:18px; line-height:20px; color:#403c39;font-weight:bold;">MEETING LOCATION</td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table align="center" width="102" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="2" bgcolor="#6299b3" style="font-size:0px; line-height:0px;">
+                      <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="20" align="center">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#000000; letter-spacing:5px;">
+                <%= @booking.adventure.location_name %>
+              </td>
+            </tr>
+            <tr>
+              <td height="4" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:12px; line-height:14px; color:#827c75;">
+                <span class="em_applewhiltelink"><%= @booking.adventure.location.try(:name) %></span>
+              </td>
+            </tr>
+            <tr>
+              <td height="14" style="font-size:0px; line-height:0px;" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center" style="font-family: 'Droid Serif', Georgia, 'Times New Roman', Times, serif;font-size:14px; line-height:24px; color:#827c75;">
+                Contact us if you have any <br class="em_hide" />questions about your adventure
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table align="center" width="160" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top" align="center">
+                      <table align="center" width="160" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td valign="top" width="3" style="font-size:0px; line-height:0px;">
+                            <%= image_tag "curve_1.jpg", :width => "3", :height => "3", :alt => "", :style => "display:block; max-width:3px;", :border => "0" %>
+                          </td>
+                          <td valign="top" align="center">
+                            <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="1" style="font-size:0px; line-height:0px;" bgcolor="#6299b3">
+                                  <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="2" style="font-size:0px; line-height:0px;">
+                                  <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td valign="top" width="3" style="font-size:0px; line-height:0px;">
+                            <%= image_tag "curve_2.jpg", :width => "3", :height => "3", :alt => "", :style => "display:block; max-width:3px;", :border => "0" %>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="center">
+                      <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="1" bgcolor="#6299b3"></td>
+                          <td height="35" valign="middle" align="center" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:10px; color:#74a9c0; font-weight:bold;">
+                            <%= link_to "CONTACT US", "mailto:support@gohinterlands.com", :target => "_blank", :style => "text-decoration:none; line-height:35px; display:block; color:#74a9c0;" %>
+                          </td>
+                          <td width="1" bgcolor="#6299b3"></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="center">
+                      <table align="center" width="160" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td valign="top" width="3" style="font-size:0px; line-height:0px;">
+                            <%= image_tag "curve_4.jpg", :width => "3", :height => "3", :alt => "", :style => "display:block; max-width:3px;", :border => "0" %>
+                          </td>
+                          <td valign="top" align="center">
+                            <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="2" style="font-size:0px; line-height:0px;" >
+                                  <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="1" style="font-size:0px; line-height:0px;" bgcolor="#6299b3">
+                                  <%= image_tag "spacer.gif", :width => "1", :height => "1", :alt => "", :style => "display:block;", :border => "0" %>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td valign="top" width="3" style="font-size:0px; line-height:0px;">
+                            <%= image_tag "curve_3.jpg", :width => "3", :height => "3", :alt => "", :style => "display:block; max-width:3px;", :border => "0" %>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="50" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="96" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>
+

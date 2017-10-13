@@ -1,0 +1,87 @@
+<tr>
+  <td valign="top" align="center" bgcolor="#f8f8f8">
+    <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20" class="em_side">&nbsp;</td>
+        <td valign="top" align="center">
+          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="40" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                Hi <%= @user.first_name %>
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <% if @user == @booking.adventurer %>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                We’re sorry to report that <%= @booking.guide.try(:first_name) || "the guide" %> has cancelled your <%= @booking.adventure.title %> adventure. Your deposit will be refunded in 24 to 48 hours.
+              </td>
+            </tr>
+            <tr>
+              <td height="17" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                Guides may cancel for a number of reasons including weather, conditions, or injury. We know you were really excited to go on this adventure, but there are plenty more listings, so we invite you to keep exploring Hinterlands!
+              </td>
+            </tr>
+            <tr>
+              <td height="35" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:20px; line-height:22px; color:#403c39;font-weight:bold;text-transform:uppercase;">Similar Alternative Adventures</td>
+            </tr>
+            <tr>
+              <td height="13" style="font-size:0px; line-height:0px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td valign="top" align="center">
+                <table align="center" width="100" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="2" bgcolor="#6299b3" style="font-size:0px; line-height:0px;">
+                      <%= image_tag "spacer.gif", :width => "1", :height =>"1", :alt => "", :style => "display:block;", :border => "0" %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="25" class="em_height">&nbsp;</td>
+            </tr>
+            <%= render partial: 'user_mailer/featured_adventures', locals: { feature_adventures: @feature_adventures } %>
+            <tr>
+              <td height="35" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                <%= link_to "View Itinerary", web_app_url('reservations', id: @booking.uid), :style => "color: #666666; font-size: 14px;" %>
+              </td>
+            </tr>
+            <% else %>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                  You’ve canceled <%= @booking.adventure.duration %> day <%= @booking.adventure.title %> <%= @booking.adventure.location.name %>. Those dates are now available on your calendar again.
+              </td>
+            </tr>
+            <% end %>
+            <tr>
+              <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">Thanks, <br/>The Hinterlands Team</td>
+            </tr>
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="20" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>

@@ -1,0 +1,131 @@
+<!-- featured adventure grid-->
+<% feature_adventures.each_slice(2) do |feature_adventures| %>
+  <tr>
+    <td valign="top" align="center">
+      <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top" align="center">
+            <% feature_adventures.each_with_index do |adventure, i| %>
+              <table align="<%= i.odd? ? "left" : "right" %>" class="em_wrapper" width="233" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top" align="center">
+                    <table align="center" width="233" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top" align="center">
+                          <%= link_to web_app_url('adventures', id: adventure.slug) , :target => "_blank" do %>
+                            <%= image_tag(adventure.adventure_images.first.try(:file).try(:url), width: "233", height: "151", :alt => "adventures image", :style => "font-family:Arial, sans-serif; font-size:15px; color:#000000; display:block; max-width:233px;", :border => "none") if adventure.adventure_images.first.try(:file?) %>
+                          <% end %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td valign="top" align="center">
+                          <table align="center" width="233" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+                            <tr>
+                              <td width="10" class="em_side">&nbsp;</td>
+                              <td valign="top" align="center">
+                                <table align="center" width="213" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td height="12" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td valign="top" align="center">
+                                      <%= adventure.guides.each do |guide| %>
+                                        <table align="center" width="213" border="0" cellspacing="0" cellpadding="0">
+                                          <tr>
+                                            <td valign="top" align="center" width="27">
+                                              <%= image_tag(guide.profile_photo.url, width: "27", height: "27", style: "display:block; max-width:27px; -webkit-border-radius: 100%; -moz-border-radius: 100%; border-radius: 100%;", border: "0") if guide.try(:profile_photo?) %>
+                                            </td>
+                                            <td width="4"></td>
+                                            <td valign="top" align="center">
+                                              <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                  <td height="10" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                  <td valign="top" align="center">
+                                                    <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                      <tr>
+                                                        <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:10px; line-height:12px; color:#403c39; font-weight:bold; width: 100%; "><%= guide.name %></td>
+                                                        <td width="50">&nbsp;</td>
+                                                        <!-- rating - currently disabled -->
+                                                        <!-- <td valign="top" align="center" width="63" style="font-size:0px; line-height:0px;">
+                                                          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                              <td width="37" height="8" style="position: relative;">
+                                                                <span style="display: block; background: #8c8c8c; position: absolute; z-index: 0; width: 37px; height: 8px;"></span>
+                                                                <span class="filler" style="display: block; background: #f5a623; position: absolute; z-index: 0; left: 2px; right: 2px; width: 50%; height: 8px;"></span>
+                                                                <%= image_tag "star_mask.png", :width => "37", :height => "8", :style => "display: block; position: relative; z-index: 1; margin: 0 2px 0 0;" %>
+                                                              </td>
+                                                              <td width="50">&nbsp;</td>
+                                                              <td width="12" height="8" valign="bottom" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size: 8px; line-height:8px; color:#666666;">
+                                                              3
+                                                              </td>
+                                                            </tr>
+                                                          </table> -->
+                                                        </td>
+                                                      </tr>
+                                                    </table>
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      <% end %>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td height="5" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                    <td valign="top" align="center">
+                                      <table align="center" width="213" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                          <td width="25">&nbsp;</td>
+                                          <td valign="top" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif;">
+                                            <p style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:11px; line-height:15px; color:#403c39; overflow: hidden; max-height: 45px; height: 45px;">
+                                              <%= adventure.description %>
+                                            </p>
+                                          </td>
+                                          <td width="15">&nbsp;</td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                                        <tr>
+                                          <td valign="middle" height="30"  align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:9px;color:#827c75;"><%= adventure.location_name %>&nbsp;.&nbsp; <%= adventure.main_activity.try(:title) %> </td>
+                                          <td>&nbsp;</td>
+                                          <td valign="middle" height="19" align="right" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:16px; color:#6299b3;"><%= adventure.price.format %>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td height="15" style="font-size:0px; line-height:0px;">&nbsp;</td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <td width="10" class="em_side">&nbsp;</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height="30" class="em_height">&nbsp;</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+<% end %>
+<!-- featured adventure grid ends here-->

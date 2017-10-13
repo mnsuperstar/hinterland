@@ -1,0 +1,60 @@
+<tr>
+  <td valign="top" align="center" bgcolor="#f8f8f8">
+    <table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20" class="em_side">&nbsp;</td>
+        <td valign="top" align="center">
+          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="40" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="em_font_25" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:25px; line-height:27px; color:#403c39; font-weight:bold;"><%= @user.first_name %>, you're on your way to a new adventure!
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;"><%= @user.first_name %>,
+                <br/>
+                Time to start packing your gear!
+                <br/>
+                <%= link_to @booking.guide.first_name, web_app_url('guides', id: @booking.guide.slug), :style => "color: #666666; font-size: 14px;" %> accepted your request.
+                <br/>
+                You are now booked for <%= @booking.adventure.title %> on
+                <%= l(@booking.start_on, format: :booking) %> - <%= l(@booking.end_on, format: :booking) %>.
+                <br/>
+                <br/>
+                We’ll keep you updated as the trip approaches, but here are a few shortcuts to common questions:
+                <ul style="color: #999999; font-size: 14px; line-height: 24px;" >
+                  <li>Contact your <%= mail_to "#{@booking.guide.email_alias}", "guide", :style => "color: #666666; font-size: 14px;"%>.</li>
+                  <li>
+                    What to bring<br/>
+                    <%= simple_format @booking.adventure.notes %>
+                  </li>
+                  <li><%= link_to "Review itinerary", web_app_url('reservations', id: @booking.uid), :style => "color: #666666; font-size: 14px;" %></li>
+                  <li><%= link_to "Share this trip", web_app_url('adventures', id: @booking.adventure.slug), :style => "color: #666666; font-size: 14px;" %></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                Have fun out there!
+                <br/>
+                The Hinterlands Team
+              </td>
+            </tr>
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="20" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>

@@ -1,0 +1,43 @@
+<tr>
+  <td valign="top" align="center" bgcolor="#f8f8f8">
+    <table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20" class="em_side">&nbsp;</td>
+        <td valign="top" align="center">
+          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="40" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;"><%= @booking.guide.first_name %>,
+                <br/>
+                <%= @booking.adventurer.short_name %> has requested to book <%= @booking.adventure.title %> on <%= I18n.l(@booking.start_on, format: :booking) %>.
+                Please login to Hinterlands and review your requests under the adventure request section.
+<% if false %>
+<%= link_to "Click here to review the adventure booking request", web_app_url('guide/bookings', id: @booking.uid) %>
+or
+<%= link_to "go into your guide dashboard", web_app_url(:root) %>.
+<% end -%>
+                <br/>
+                <br/>
+                As always, please let us know if you have questions or need assistance. You can chat directly with us in app by going to the menu > settings > support or directly on our website.
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                The Hinterlands Team
+              </td>
+            </tr>
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="20" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>

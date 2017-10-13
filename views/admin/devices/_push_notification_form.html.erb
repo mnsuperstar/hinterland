@@ -1,0 +1,22 @@
+<%= form_tag send_push_notification_admin_device_path(resource), method: :post, class: 'formtastic' do %>
+  <fieldset class="inputs">
+    <ol>
+      <li class="string input required stringish">
+        <%= label_tag "message", "Message", class: "label" %>
+        <%= text_field_tag "message", params[:message], required: true %>
+      </li>
+      <li class="text input optional">
+        <%= label_tag "options", "Options", class: "label" %>
+        <%= text_area_tag "options", params[:options] %>
+        <p class="inline-hints">JSON formatted</p>
+      </li>
+    </ol>
+  </fieldset>
+  <fieldset class="actions">
+    <ol>
+      <li class="action input_action">
+        <%= submit_tag "Send Message" %>
+      </li>
+    </ol>
+  </fieldset>
+<% end %>

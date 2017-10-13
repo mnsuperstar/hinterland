@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>HINTERLANDS</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
+  <meta name="format-detection" content="telephone=no" />
+  <!--[if !mso]><!-->
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
+    <style type="text/css">
+      body {
+        font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; 
+        font-size:12px; 
+        color:#74a9c0; 
+        -webkit-text-size-adjust: 100% !important;
+        -ms-text-size-adjust: 100% !important;
+        -webkit-font-smoothing: antialiased !important;
+      }
+      img {
+        border: 0 !important;
+        outline: none !important;
+      }
+      p {
+        Margin: 0px !important;
+        Padding: 0px !important;
+      }
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0px;
+        mso-table-rspace: 0px;
+      }
+      td, a, span {
+        border-collapse: collapse;
+        mso-line-height-rule: exactly;
+      }
+      .ExternalClass * {
+        line-height: 100%;
+      }
+      span.MsoHyperlink {
+        mso-style-priority: 99;
+        color: inherit;
+      }
+      span.MsoHyperlinkFollowed {
+        mso-style-priority: 99;
+        color: inherit;
+      }
+      .em_blk_1 a {
+        color: #a7afb3 !important;
+        text-decoration: none !important;
+      }
+      form{
+        width: 100%;
+        height: auto;
+        display: block;
+        text-align: center;
+      }
+      form .field {
+        margin: 0 0 20px;
+      }
+      form .actions{
+        padding: 10px 0 0;
+        margin: 0 0 20px;
+      }
+      form input[type="password"]{
+        text-align: center;
+        margin: 5px 0 0;
+        padding: 8px 10px;
+        min-width: 50%;
+        border-radius: 3px;
+        border:1px solid #827c75;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; 
+      }
+      form input[type="submit"]{
+        font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; 
+        text-transform: uppercase;
+        font-size:12px; 
+        line-height: 40px;
+        color:#74a9c0; 
+        font-weight:bold;
+        padding: 0 30px;
+        border:1px solid #74a9c0; 
+        border-radius:3px;
+        background: transparent;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; 
+      }
+      @media only screen and (min-width: 481px) and (max-width: 599px) {
+      table[class=em_wrapper] {
+        width: 100% !important;
+      }
+      td[class=em_height] {
+        height: 20px !important;
+      }
+      td[class=em_pad_top] {
+        padding-top: 20px !important;
+      }
+      img[class=em_img] {
+        width: 100% !important;
+        height: auto !important;
+      }
+      td[class=em_side] {
+        width: 10px !important;
+      }
+      td[class=em_hide], br[class=em_hide] {
+        display: none !important;
+      }
+      td[class=em_center] {
+        text-align: center !important;
+      }
+      td[class=em_font_25] {
+        font-size: 20px !important;
+        line-height: 22px !important;
+      }
+      td[class=em_w40] {
+        width: 60px !important;
+      }
+      }
+      @media only screen and (max-width: 480px) {
+      table[class=em_wrapper] {
+        width: 100% !important;
+      }
+      td[class=em_height] {
+        height: 20px !important;
+      }
+      td[class=em_hide], br[class=em_hide] {
+        display: none !important;
+      }
+      td[class=em_pad_top] {
+        padding-top: 20px !important;
+      }
+      td[class=em_side] {
+        width: 10px !important;
+      }
+      img[class=em_img] {
+        width: 100% !important;
+        height: auto !important;
+      }
+      td[class=em_center] {
+        text-align: center !important;
+      }
+      table[class=em_wrapper_1] {
+        width: 300px !important;
+      }
+      td[class=em_font_25] {
+        font-size: 18px !important;
+        line-height: 20px !important;
+      }
+      td[class=em_w40] {
+        width: 40px !important;
+      }
+    }
+    </style>
+  </head>
+  <body style="margin:0px; padding:0px;" bgcolor="#ffffff">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#ffffff">
+      <tr>
+        <td align="center">
+          <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" class="em_wrapper" style="table-layout:fixed;">
+            <tr>
+              <td class="em_hide" style="line-height:1px; font-size:1px;" width="600">
+                <%= image_tag "spacer.gif", :height => "1", :width => "600", :style => "height: 64px; max-height: 1px; min-height: 1px; display: block; width: 600px; min-width: 600px;", :border => "0"%>
+              </td>
+            </tr>  
+            <%= render template: "user_mailer/email_header.html.erb" %>
+            <tr>
+              <td valign="top" align="center" bgcolor="#f8f8f8">
+                <table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="20" class="em_side">&nbsp;</td>
+                    <td valign="top" align="center">
+                      <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td height="40" class="em_height">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="em_font_25" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:25px; line-height:27px; color:#403c39; font-weight:bold;text-align:center;">Change Your Password</td>
+                        </tr>
+                        <tr>
+                          <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+                              <%= devise_error_messages! %>
+                              <%= f.hidden_field :reset_password_token %>
+
+                              <div class="field" style="margin: 0 0 20px;" >
+                                <%= f.label :password, "New password" %><br />
+                                <% if @minimum_password_length %>
+                                  <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                                <% end %>
+                                <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+                              </div>
+                              <div class="field">
+                                <%= f.label :password_confirmation, "Confirm new password" %><br />
+                                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                              </div>
+
+                              <div class="actions">
+                                <%= f.submit "Change my password" %>
+                              </div>
+                            <% end %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td height="30" class="em_height">&nbsp;</td>
+                        </tr>
+                      </table>  
+                    </td>
+                    <td width="20" class="em_side">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <%= render template: "user_mailer/email_footer.html.erb" %>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>     

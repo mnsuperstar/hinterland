@@ -1,0 +1,183 @@
+<tr>
+  <td valign="top" align="center" bgcolor="#f8f8f8">
+    <table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20" class="em_side">&nbsp;</td>
+        <td valign="top" align="center">
+          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="40" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                <%= @booking.adventurer.name %>,
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                We hope you are getting excited for your upcoming <%= @booking.adventure_main_activity_title %> adventure with <%= @booking.guide_name %>! Your adventure itinerary can be found below. If you have any questions about what to pack, wear, eat, etc., please contact your guide directly.
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                Adventure will start on <%= I18n.l @booking.start_on, format: :booking %> and end on <%= I18n.l @booking.end_on, format: :booking %>, you and your guide will meet on <%= @booking.adventure_location_name.presence || @booking.adventure.try(:location).try(:name) %>
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:16px; line-height:20px; color:#403c39; font-weight:bold;">
+                Inclusions
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <% @booking.adventure_inclusions.each do |inclusion| %>
+                    <tr>
+                      <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                        - <%= inclusion %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height="10" style="font-size:1px; line-height:1px;">&nbsp;</td>
+                    </tr>
+                  <% end %>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="7" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                This adventure will have <b><%= @booking.number_of_adventurers %></b> participants
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:16px; line-height:20px; color:#403c39; font-weight:bold;">
+                Price Details
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                      Sub Total Price&nbsp;
+                    </td>
+                    <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                      : <%= humanized_money_with_symbol @booking.sub_total_price %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                      Tax&nbsp;
+                    </td>
+                    <td  style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                      : <%= humanized_money_with_symbol @booking.tax %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                      Total Price&nbsp;
+                    </td>
+                    <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                      : <%= humanized_money_with_symbol @booking.total_price.format %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:16px; line-height:20px; color:#403c39; font-weight:bold;">
+                Information about your guide
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td valign="top" width="120">
+                      <%= image_tag @booking.guide_profile_photo_url(:desktop_large), style: "max-width:100%;min-width:80px;height:auto;" if @booking.guide_profile_photo_url %>
+                    </td>
+                    <td width="20">&nbsp;<td>
+                    <td valign="top" align="left">
+                      <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td valign="top" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            Name&nbsp;
+                          </td>
+                          <td width="2" valign="top">:&nbsp; </td>
+                          <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            <%= @booking.guide_name %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td valign="top" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            Location&nbsp;
+                          </td>
+                          <td width="2" valign="top">:&nbsp; </td>
+                          <td  style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            <%= @booking.guide_location %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td valign="top" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            Bio&nbsp;
+                          </td>
+                          <td width="2" valign="top">:&nbsp; </td>
+                          <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            <%= @booking.guide_bio %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td valign="top" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            Email&nbsp;
+                          </td>
+                          <td width="2" valign="top">:&nbsp; </td>
+                          <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            <%= @booking.guide_email_alias %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td valign="top" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            Phone Number&nbsp;
+                          </td>
+                          <td width="2" valign="top">:&nbsp; </td>
+                          <td style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                            <%= @booking.guide_phone_number %>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="40" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="20" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>

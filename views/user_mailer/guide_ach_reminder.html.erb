@@ -1,0 +1,48 @@
+<tr>
+  <td valign="top" align="center" bgcolor="#f8f8f8">
+    <table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="20" class="em_side">&nbsp;</td>
+        <td valign="top" align="center">
+          <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="40" class="em_height">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="em_font_25" align="left" style="font-family:'Metric', Helvetica, Arial, sans-serif; font-size:25px; line-height:27px; color:#403c39; font-weight:bold;">Update your ACH details to receive bookings
+              </td>
+            </tr>
+            <tr>
+              <td height="17" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">Hello <%= @guide.first_name %>,
+                <br/>
+                Our records indicate that you have not added your ACH information to the payments section of your guide dashboard. Because of this your adventures have been unlisted and you will not be able to accept payments for future bookings that incure.
+                <br/>
+                <br/>
+                To enable your ACH you can log into your dashboard and will be prompted to add your ACH details if you are the most recent build. If you are not on the most recent build please update your iOS application by going to the Apple App Store and updating Hinterlands. Alternativly, you can update your ACH details with our <%= link_to "app", web_app_url(:root) %> by going into your account and clicking the account link.
+                <br>
+                We're here to help so you have any issue please feel free to contact <%= mail_to "support@gohinterlands.com", "support@gohinterlands.com", :style => "color: #666666; font-size: 14px;"%>
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size:1px; line-height:1px;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="left" style="font-family:'Droid Serif', 'Times New Roman', Times, serif; font-size:14px; line-height:20px; color:#827c75;">
+                Thank you,
+                <br/>
+                - The Hinterlands Team
+              </td>
+            </tr>
+            <tr>
+              <td height="30" class="em_height">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td width="20" class="em_side">&nbsp;</td>
+      </tr>
+    </table>
+  </td>
+</tr>
